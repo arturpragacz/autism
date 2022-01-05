@@ -1,0 +1,26 @@
+#logo {
+	height: 40px;
+}
+
+@media (min-width: 576px) {
+	.navbar {
+		padding: 0px;
+	}
+}
+
+.navbar-container {
+	max-width: 1000px;
+}
+
+.place {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.place:first-child {
+	border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.place a {
+	opacity: 0.8;
+	color: #5959bb;
+}

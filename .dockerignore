@@ -1,0 +1,20 @@
+# use syntax common to .gitignore and .dockerignore
+
+**/*.pyc
+**/__pycache__/
+**/*~
+/deployment/
+/db.sqlite3
+/venv*/
+/.venv*/
+/.vscode/
+/.idea/
+
+# docker specific
+
+/Dockerfile*
+/docker*
+/.dockerignore
+/.git
+/.gitignore
+/.github

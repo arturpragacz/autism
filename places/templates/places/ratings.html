@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ place.name }}{% endblock %}
+
+{% block content %}
+	<p><a href="{% url 'places:place' view.kwargs.pk %}">Back</a></p>
+	<h2>Ratings</h2>
+	<p>sound intensity: {{ place.sound_intensity_rating }}</p>
+	<p>light intensity: {{ place.light_intensity_rating }}</p>
+	<p>smell intensity: {{ place.smell_intensity_rating }}</p>
+	<p>spaciousness: {{ place.spaciousness_rating }}</p>
+{% endblock %}

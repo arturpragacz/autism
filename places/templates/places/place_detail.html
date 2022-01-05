@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ place.name }}{% endblock %}
+
+{% block content %}
+	<p><a href="{% url 'places:search' %}">Back</a></p>
+	<h2 class="mb-4">{{ place.name }}</h2>
+	<h4 class="mb-4">{{ place.address }}</h4>
+	<button type="button" onclick="notImplemented()">Photos</button>
+	<p>Autism friendly score: {{ place.total_rating }}</p>
+	<p><a href="{% url 'places:ratings' view.kwargs.pk %}">See detailed ratings</a></p>
+	<p><a href="{% url 'places:rate' view.kwargs.pk %}">Rate it</a></p>
+{% endblock %}
