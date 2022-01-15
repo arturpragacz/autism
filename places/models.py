@@ -65,7 +65,7 @@ class Rating(models.Model):
 def update_place_scores(place):
 	Subratings = Rating.get_subratings()
 
-	scores = Rating.objects.filter(place=place).aggregate(
+	scores = place.rating_set.aggregate(
 		*([Sum(sn) for sn in Subratings._fields]
 		+ [Count(sn) for sn in Subratings._fields])
 	)
