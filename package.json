@@ -1,0 +1,8 @@
+{
+	"dependencies": {
+		"jquery": "^3.6.0",
+		"bootstrap": "^4.6.1",
+		"popper.js": "1.16.1",
+		"bootstrap-star-rating": "^4.1.2"
+	}
+}

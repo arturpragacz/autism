@@ -7,12 +7,13 @@ from django.db.models import Q
 
 from base.views import CreateUpdateView, SearchView
 from .models import Place, Rating, update_place_scores
-from .forms import PlaceSearchForm
+from .forms import PlaceSearchForm, RatingForm
 
 
 class PlaceSearchView(SearchView):
 	form_class = PlaceSearchForm
 	# model = Place
+	ordering = '-total_rating'
 	paginate_by = 6
 
 	def get_queryset(self):
@@ -38,19 +39,19 @@ class RatingsView(DetailView):
 
 class RateView(LoginRequiredMixin, CreateUpdateView):
 	model = Rating
-	fields = ['sound_intensity', 'light_intensity', 'smell_intensity', 'spaciousness']
+	form_class = RatingForm
 	template_name = 'places/rate.html'
 
 	def do_get_object(self, queryset):
 		user = self.request.user
 		if not user.is_authenticated:
-			raise Http404(_("No authenticated user."))
+			raise Http404(_('No authenticated user.'))
 
 		self.place_pk = self.kwargs.get('pk')
 		try:
 			self.place = Place.objects.get(pk=self.place_pk)
 		except (Place.DoesNotExist, Place.MultipleObjectsReturned):
-			raise Http404(_("No unique place found matching the query."))
+			raise Http404(_('No unique place found matching the query.'))
 
 		if queryset is None:
 			queryset = self.get_queryset()
@@ -77,4 +78,5 @@ class RateView(LoginRequiredMixin, CreateUpdateView):
 
 	def get_success_url(self):
 		"""Return the URL to redirect to after processing a valid form."""
-		return reverse('places:rate', args=(self.place_pk,))
+		return (reverse('places:rate', args=(self.place_pk,)) +
+			('?q=%s' % self.request.GET['q'] if self.request.GET.get('q') else ''))

@@ -1,0 +1,480 @@
+[
+	{
+		"model": "users.user",
+		"pk": 1,
+		"fields": {
+			"password": "pbkdf2_sha256$320000$Fo6xlQHzzWERDUt7wyVjfA$E0QRl18+PqJ5EaGKtq5GankGqrwxHXDBuWmFgTCDQGI=",
+			"last_login": "2022-01-16T17:40:39.216Z",
+			"is_superuser": true,
+			"username": "admin",
+			"first_name": "",
+			"last_name": "",
+			"email": "",
+			"is_staff": true,
+			"is_active": true,
+			"date_joined": "2022-01-16T17:35:03.358Z",
+			"groups": [],
+			"user_permissions": []
+		}
+	},
+	{
+		"model": "users.user",
+		"pk": 2,
+		"fields": {
+			"password": "pbkdf2_sha256$320000$x6AvxqabAGmfNrkcuJbdxM$VGG1RgZOykIIuwyXCMp/Lk8tIXJ3sm77FNdim/wUj2U=",
+			"last_login": "2022-01-16T17:45:39.312Z",
+			"is_superuser": false,
+			"username": "test",
+			"first_name": "",
+			"last_name": "",
+			"email": "",
+			"is_staff": true,
+			"is_active": true,
+			"date_joined": "2022-01-16T17:43:05Z",
+			"groups": [
+				1
+			],
+			"user_permissions": []
+		}
+	},
+	{
+		"model": "places.place",
+		"pk": 1,
+		"fields": {
+			"name": "Restauracja u Wojciecha",
+			"address": "Aleje Jerozolimskie 55",
+			"sound_intensity_rating": 4.0,
+			"light_intensity_rating": 4.0,
+			"smell_intensity_rating": 4.0,
+			"spaciousness_rating": null,
+			"total_rating": 4.0
+		}
+	},
+	{
+		"model": "places.place",
+		"pk": 2,
+		"fields": {
+			"name": "Bar u Zdzisława",
+			"address": "ul. Królewska 13",
+			"sound_intensity_rating": 3.0,
+			"light_intensity_rating": 1.0,
+			"smell_intensity_rating": null,
+			"spaciousness_rating": 4.0,
+			"total_rating": 2.6666666666666665
+		}
+	},
+	{
+		"model": "places.place",
+		"pk": 3,
+		"fields": {
+			"name": "Bar u Marzeny",
+			"address": "plac Narutowicza 83",
+			"sound_intensity_rating": null,
+			"light_intensity_rating": null,
+			"smell_intensity_rating": null,
+			"spaciousness_rating": null,
+			"total_rating": null
+		}
+	},
+	{
+		"model": "places.rating",
+		"pk": 1,
+		"fields": {
+			"user": 2,
+			"place": 1,
+			"sound_intensity": 4,
+			"light_intensity": 4,
+			"smell_intensity": 4,
+			"spaciousness": null
+		}
+	},
+	{
+		"model": "places.rating",
+		"pk": 2,
+		"fields": {
+			"user": 1,
+			"place": 2,
+			"sound_intensity": 3,
+			"light_intensity": 1,
+			"smell_intensity": null,
+			"spaciousness": 4
+		}
+	},
+	{
+		"model": "places.rating",
+		"pk": 3,
+		"fields": {
+			"user": 2,
+			"place": 3,
+			"sound_intensity": null,
+			"light_intensity": null,
+			"smell_intensity": null,
+			"spaciousness": null
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 1,
+		"fields": {
+			"name": "Can add user",
+			"content_type": 1,
+			"codename": "add_user"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 2,
+		"fields": {
+			"name": "Can change user",
+			"content_type": 1,
+			"codename": "change_user"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 3,
+		"fields": {
+			"name": "Can delete user",
+			"content_type": 1,
+			"codename": "delete_user"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 4,
+		"fields": {
+			"name": "Can view user",
+			"content_type": 1,
+			"codename": "view_user"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 5,
+		"fields": {
+			"name": "Can add place",
+			"content_type": 2,
+			"codename": "add_place"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 6,
+		"fields": {
+			"name": "Can change place",
+			"content_type": 2,
+			"codename": "change_place"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 7,
+		"fields": {
+			"name": "Can delete place",
+			"content_type": 2,
+			"codename": "delete_place"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 8,
+		"fields": {
+			"name": "Can view place",
+			"content_type": 2,
+			"codename": "view_place"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 9,
+		"fields": {
+			"name": "Can add rating",
+			"content_type": 3,
+			"codename": "add_rating"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 10,
+		"fields": {
+			"name": "Can change rating",
+			"content_type": 3,
+			"codename": "change_rating"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 11,
+		"fields": {
+			"name": "Can delete rating",
+			"content_type": 3,
+			"codename": "delete_rating"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 12,
+		"fields": {
+			"name": "Can view rating",
+			"content_type": 3,
+			"codename": "view_rating"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 13,
+		"fields": {
+			"name": "Can add log entry",
+			"content_type": 4,
+			"codename": "add_logentry"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 14,
+		"fields": {
+			"name": "Can change log entry",
+			"content_type": 4,
+			"codename": "change_logentry"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 15,
+		"fields": {
+			"name": "Can delete log entry",
+			"content_type": 4,
+			"codename": "delete_logentry"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 16,
+		"fields": {
+			"name": "Can view log entry",
+			"content_type": 4,
+			"codename": "view_logentry"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 17,
+		"fields": {
+			"name": "Can add permission",
+			"content_type": 5,
+			"codename": "add_permission"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 18,
+		"fields": {
+			"name": "Can change permission",
+			"content_type": 5,
+			"codename": "change_permission"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 19,
+		"fields": {
+			"name": "Can delete permission",
+			"content_type": 5,
+			"codename": "delete_permission"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 20,
+		"fields": {
+			"name": "Can view permission",
+			"content_type": 5,
+			"codename": "view_permission"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 21,
+		"fields": {
+			"name": "Can add group",
+			"content_type": 6,
+			"codename": "add_group"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 22,
+		"fields": {
+			"name": "Can change group",
+			"content_type": 6,
+			"codename": "change_group"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 23,
+		"fields": {
+			"name": "Can delete group",
+			"content_type": 6,
+			"codename": "delete_group"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 24,
+		"fields": {
+			"name": "Can view group",
+			"content_type": 6,
+			"codename": "view_group"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 25,
+		"fields": {
+			"name": "Can add content type",
+			"content_type": 7,
+			"codename": "add_contenttype"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 26,
+		"fields": {
+			"name": "Can change content type",
+			"content_type": 7,
+			"codename": "change_contenttype"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 27,
+		"fields": {
+			"name": "Can delete content type",
+			"content_type": 7,
+			"codename": "delete_contenttype"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 28,
+		"fields": {
+			"name": "Can view content type",
+			"content_type": 7,
+			"codename": "view_contenttype"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 29,
+		"fields": {
+			"name": "Can add session",
+			"content_type": 8,
+			"codename": "add_session"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 30,
+		"fields": {
+			"name": "Can change session",
+			"content_type": 8,
+			"codename": "change_session"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 31,
+		"fields": {
+			"name": "Can delete session",
+			"content_type": 8,
+			"codename": "delete_session"
+		}
+	},
+	{
+		"model": "auth.permission",
+		"pk": 32,
+		"fields": {
+			"name": "Can view session",
+			"content_type": 8,
+			"codename": "view_session"
+		}
+	},
+	{
+		"model": "auth.group",
+		"pk": 1,
+		"fields": {
+			"name": "place_add",
+			"permissions": [
+				5,
+				6,
+				7,
+				8
+			]
+		}
+	},
+	{
+		"model": "contenttypes.contenttype",
+		"pk": 1,
+		"fields": {
+			"app_label": "users",
+			"model": "user"
+		}
+	},
+	{
+		"model": "contenttypes.contenttype",
+		"pk": 2,
+		"fields": {
+			"app_label": "places",
+			"model": "place"
+		}
+	},
+	{
+		"model": "contenttypes.contenttype",
+		"pk": 3,
+		"fields": {
+			"app_label": "places",
+			"model": "rating"
+		}
+	},
+	{
+		"model": "contenttypes.contenttype",
+		"pk": 4,
+		"fields": {
+			"app_label": "admin",
+			"model": "logentry"
+		}
+	},
+	{
+		"model": "contenttypes.contenttype",
+		"pk": 5,
+		"fields": {
+			"app_label": "auth",
+			"model": "permission"
+		}
+	},
+	{
+		"model": "contenttypes.contenttype",
+		"pk": 6,
+		"fields": {
+			"app_label": "auth",
+			"model": "group"
+		}
+	},
+	{
+		"model": "contenttypes.contenttype",
+		"pk": 7,
+		"fields": {
+			"app_label": "contenttypes",
+			"model": "contenttype"
+		}
+	},
+	{
+		"model": "contenttypes.contenttype",
+		"pk": 8,
+		"fields": {
+			"app_label": "sessions",
+			"model": "session"
+		}
+	}
+]

@@ -2,12 +2,16 @@
 
 {% block title %}{{ place.name }}{% endblock %}
 
+{% block back %}
+	<div id="back" class=><a href="{% url 'places:search' %}{% if request.GET.q %}?q={{ request.GET.q }}{% endif %}">
+		<span><i class="bi bi-arrow-left"></i>{% block back_text %}Back{% endblock %}</span>
+	</a></div>
+{% endblock %}
+
 {% block content %}
-	<p><a href="{% url 'places:search' %}">Back</a></p>
 	<h2 class="mb-4">{{ place.name }}</h2>
 	<h4 class="mb-4">{{ place.address }}</h4>
-	<button type="button" onclick="notImplemented()">Photos</button>
-	<p>Autism friendly score: {{ place.total_rating }}</p>
-	<p><a href="{% url 'places:ratings' view.kwargs.pk %}">See detailed ratings</a></p>
-	<p><a href="{% url 'places:rate' view.kwargs.pk %}">Rate it</a></p>
+	{% include "places/rating_widget_disabled.html" with value=place.total_rating only %}
+	<p><a href="{% url 'places:ratings' view.kwargs.pk %}{% if request.GET.q %}?q={{ request.GET.q }}{% endif %}">See detailed ratings</a></p>
+	<p><a href="{% url 'places:rate' view.kwargs.pk %}{% if request.GET.q %}?q={{ request.GET.q }}{% endif %}">Rate it</a></p>
 {% endblock %}

@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'places.apps.PlacesConfig',
     'base.apps.BaseConfig',
-    'autism.apps.AddressConfig',
+    # 'autism.apps.AddressConfig',
 
     'crispy_forms',
 
@@ -138,8 +138,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # my additions
 
-STATIC_ROOT = BASE_DIR / 'deployment/static'
+STATIC_ROOT = BASE_DIR / 'deployment' / 'static'
 # STATICFILES_DIRS = [BASE_DIR / 'static']
+# STATICFILES_FINDERS = [
+# 	'django.contrib.staticfiles.finders.FileSystemFinder',
+# 	'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+# 	'npm.finders.NpmFinder',
+# ]
+
+# NPM_ROOT_PATH = BASE_DIR
+# NPM_STATIC_FILES_PREFIX = 'lib'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

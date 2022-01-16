@@ -2,14 +2,19 @@
 
 {% block title %}{{ place.name }}{% endblock %}
 
-{% load crispy_forms_tags %}
+{% block back %}
+	<div id="back" class=><a href="{% url 'places:place' view.kwargs.pk %}{% if request.GET.q %}?q={{ request.GET.q }}{% endif %}">
+		<span><i class="bi bi-arrow-left"></i>{% block back_text %}Back{% endblock %}</span>
+	</a></div>
+{% endblock %}
+
 
 {% block content %}
-	<p><a href="{% url 'places:place' view.kwargs.pk %}">Back</a></p>
-	<h2>Rate</h2>
+	<h2 class="mb-4">{{ place.name }}</h2>
+	<h4 class="mb-4">{{ place.address }}</h4>
 	<form method="post">
 		{% csrf_token %}
-		{{ form | crispy }}
-		<button type="submit" class="btn btn-success">Post</button>
+		{{ form }}
+		<button type="submit" class="btn btn-success">Rate</button>
 	</form>
 {% endblock %}

@@ -2,11 +2,22 @@
 
 {% block title %}{{ place.name }}{% endblock %}
 
+{% block back %}
+	<div id="back" class=><a href="{% url 'places:place' view.kwargs.pk %}{% if request.GET.q %}?q={{ request.GET.q }}{% endif %}">
+		<span><i class="bi bi-arrow-left"></i>{% block back_text %}Back{% endblock %}</span>
+	</a></div>
+{% endblock %}
+
 {% block content %}
-	<p><a href="{% url 'places:place' view.kwargs.pk %}">Back</a></p>
-	<h2>Ratings</h2>
-	<p>sound intensity: {{ place.sound_intensity_rating }}</p>
-	<p>light intensity: {{ place.light_intensity_rating }}</p>
-	<p>smell intensity: {{ place.smell_intensity_rating }}</p>
-	<p>spaciousness: {{ place.spaciousness_rating }}</p>
+	<h2 class="mb-4">{{ place.name }}</h2>
+	<h4 class="mb-4">{{ place.address }}</h4>
+	<label for="id_sound_intensity">Sound intensity:</label>
+	{% include "places/rating_widget_disabled.html" with value=place.sound_intensity_rating only %}
+	<label for="id_light_intensity">Light intensity:</label>
+	{% include "places/rating_widget_disabled.html" with value=place.light_intensity_rating only %}
+	<label for="id_smell_intensity">Smell intensity:</label>
+	{% include "places/rating_widget_disabled.html" with value=place.smell_intensity_rating only %}
+	<label for="id_spaciousness">Spaciousness:</label>
+	{% include "places/rating_widget_disabled.html" with value=place.spaciousness_rating only %}
+	<p><a href="{% url 'places:rate' view.kwargs.pk %}{% if request.GET.q %}?q={{ request.GET.q }}{% endif %}">Rate it</a></p>
 {% endblock %}

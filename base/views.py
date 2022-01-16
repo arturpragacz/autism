@@ -24,7 +24,7 @@ class GETFormMixin(FormMixin):
 		"""Return the keyword arguments for instantiating the form."""
 		kwargs = super().get_form_kwargs()
 
-		if self.request.method == "GET" and self.request.GET:
+		if self.request.method == 'GET' and self.request.GET:
 			kwargs.update({
 				'data': self.request.GET,
 			})

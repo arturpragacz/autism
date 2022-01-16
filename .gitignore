@@ -3,6 +3,7 @@
 **/*.pyc
 **/__pycache__/
 **/*~
+/node_modules/
 /deployment/
 /db.sqlite3
 /venv*/

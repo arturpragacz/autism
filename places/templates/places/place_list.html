@@ -2,13 +2,13 @@
 	<div>
 		{% for place in place_list %}
 			<article class="place">
-				<a class="place-link" href="{% url 'places:place' place.pk %}">
+				<a class="place-link" href="{% url 'places:place' place.pk %}{% if request.GET.q %}?q={{ request.GET.q }}{% endif %}">
 					<div class="row no-gutters">
-						<div class="col" style="text-align: left;">
-							{{ place.name }}
+						<div class="col d-flex align-items-center place-name" style="text-align: left; min-width: 240px; min-height: 50px;">
+							<span>{{ place.name }}</span>
 						</div>
-						<div class="col" style="text-align: right;">
-							{{ place.total_rating }}
+						<div class="col place-rating" style="margin-top: 6px; min-width: 190px;">
+							{% include "places/rating_widget_disabled.html" with value=place.total_rating only %}
 						</div>
 					</div>
 				</a>

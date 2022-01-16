@@ -16,11 +16,11 @@ ratingValidators = [MinValueValidator(minRating), MaxValueValidator(maxRating)]
 class Place(models.Model):
 	name = models.TextField(max_length=280)
 	address = models.TextField(max_length=280)
-	sound_intensity_rating = models.FloatField(validators=ratingValidators)
-	light_intensity_rating = models.FloatField(validators=ratingValidators)
-	smell_intensity_rating = models.FloatField(validators=ratingValidators)
-	spaciousness_rating = models.FloatField(validators=ratingValidators)
-	total_rating = models.FloatField(validators=ratingValidators)
+	sound_intensity_rating = models.FloatField(validators=ratingValidators, null=True, blank=True)
+	light_intensity_rating = models.FloatField(validators=ratingValidators, null=True, blank=True)
+	smell_intensity_rating = models.FloatField(validators=ratingValidators, null=True, blank=True)
+	spaciousness_rating = models.FloatField(validators=ratingValidators, null=True, blank=True)
+	total_rating = models.FloatField(validators=ratingValidators, null=True, blank=True)
 
 	def update_ratings(self, subratings, total_rating):
 		for sn in subratings._fields:
@@ -42,10 +42,10 @@ class Place(models.Model):
 class Rating(models.Model):
 	user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 	place = models.ForeignKey(Place, on_delete=models.CASCADE)
-	sound_intensity = models.IntegerField(validators=ratingValidators)
-	light_intensity = models.IntegerField(validators=ratingValidators)
-	smell_intensity = models.IntegerField(validators=ratingValidators)
-	spaciousness = models.IntegerField(validators=ratingValidators)
+	sound_intensity = models.IntegerField(validators=ratingValidators, null=True, blank=True)
+	light_intensity = models.IntegerField(validators=ratingValidators, null=True, blank=True)
+	smell_intensity = models.IntegerField(validators=ratingValidators, null=True, blank=True)
+	spaciousness = models.IntegerField(validators=ratingValidators, null=True, blank=True)
 
 	@staticmethod
 	def get_subratings():
@@ -78,7 +78,7 @@ def update_place_scores(place):
 		+ scores['smell_intensity__count'] + scores['spaciousness__count'])
 
 	def avg(sum, count):
-		return sum / count if count != 0 else 0
+		return sum / count if count != 0 else None
 
 	subratings = Subratings(
 		sound_intensity = avg(scores['sound_intensity__sum'], scores['sound_intensity__count']),

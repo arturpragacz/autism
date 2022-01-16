@@ -5,11 +5,9 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-	<h2>#Search</h2>
-	<form method="get">
-		{{ form | crispy }}
+	<form method="get" class="search">
+		{{ form }}
 		<button type="submit" class="btn btn-success">Search</button>
-		<button type="button" class="btn btn-primary" onclick="notImplemented()">Filter</button>
 	</form>
 	{% if form.is_valid %}
 		{% include 'places/place_list.html' %}

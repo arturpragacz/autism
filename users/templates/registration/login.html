@@ -11,4 +11,6 @@
 		{{ form | crispy }}
 		<button type="submit" class="btn btn-success">Login</button>
 	</form>
+	<a class="nav-item nav-link" href="{% url 'password_reset' %}">Reset password</a>
+	<a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
 {% endblock %}
